@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy and Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .review-item {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .action-button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+        }
+        .action-button:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Choose Your Review Text</h1>
+
+<div class="review-item">
+    <p>Review Text 1: "Amazing service and friendly staff!"</p>
+    <button class="action-button" onclick="handleAction('Amazing service and friendly staff!', 'YOUR_PLACE_ID')">Copy and Leave a Review</button>
+</div>
+
+<div class="review-item">
+    <p>Review Text 2: "The food was delicious and well presented!"</p>
+    <button class="action-button" onclick="handleAction('The food was delicious and well presented!', 'YOUR_PLACE_ID')">Copy and Leave a Review</button>
+</div>
+
+<div class="review-item">
+    <p>Review Text 3: "I highly recommend this place to everyone!"</p>
+    <button class="action-button" onclick="handleAction('I highly recommend this place to everyone!', 'YOUR_PLACE_ID')">Copy and Leave a Review</button>
+</div>
+
+<script>
+    function handleAction(text, placeId) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Text copied to clipboard! You will now be redirected to leave a review.');
+            window.open(`https://search.google.com/local/writereview?placeid=${Xtreme Gaming Lounge}`, '_blank');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+</script>
+
+</body>
+</html>
